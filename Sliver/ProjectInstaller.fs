@@ -18,5 +18,5 @@ type public ProjectInstaller() as self =
         spi.Account <- ServiceAccount.LocalSystem
         self.Installers.AddRange([| (si :> Installer); (spi :> Installer) |])
     
-    member i.ServiceInstaller = si
-    member i.ServiceProcessInstaller = spi
+    member self.ServiceInstaller = si
+    member self.ServiceProcessInstaller = spi
