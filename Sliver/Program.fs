@@ -2,7 +2,7 @@
 
 open System.ServiceProcess
 open System
-open WebService
+open Sliver.WebService
 
 [<STAThread>]
 [<EntryPoint>]
