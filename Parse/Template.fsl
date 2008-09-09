@@ -1,0 +1,8 @@
+﻿{
+open Lexing
+open Parse
+}
+
+rule lexer = parse
+| _+	{ TEXT(lexeme lexbuf) }
+| eof	{ EOF }

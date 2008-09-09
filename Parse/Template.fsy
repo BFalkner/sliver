@@ -1,0 +1,21 @@
+﻿%{
+open Template
+%}
+
+%token <string> TEXT
+%token SEMI EOF
+
+%start template
+%type <Template.template> template
+
+%%
+
+template: BlockList { Template(List.rev($1)) }
+
+BlockList:
+	| Block	{ [$1] }
+	| BlockList SEMI Block	{ $3 :: $1 }
+
+Block: TEXT		{ Text($1) }
+
+%%

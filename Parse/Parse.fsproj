@@ -5,13 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{810dfb95-459c-491a-90ee-06454e2b4b32}</ProjectGuid>
+    <ProjectGuid>{6c938efd-04ae-4491-bcd9-8881c6090dba}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Test</RootNamespace>
-    <AssemblyName>Test</AssemblyName>
+    <RootNamespace>Parse</RootNamespace>
+    <AssemblyName>Parse</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Name>Test</Name>
+    <Name>Parse</Name>
+    <ReferencePath>
+    </ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,6 +33,14 @@
     <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Template.fs" />
+    <Compile Include="Parse.fsi" />
+    <Compile Include="Parse.fs" />
+    <Compile Include="Lex.fs" />
+    <Content Include="Template.fsl" />
+    <Content Include="Template.fsy" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="FSharp.PowerPack, Version=1.9.6.0, Culture=neutral, PublicKeyToken=a19089b1c74d0809">
       <Name>FSharp.PowerPack</Name>
       <AssemblyName>FSharp.PowerPack.dll</AssemblyName>
@@ -39,22 +49,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="xunit, Version=1.0.2.1293, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
-      <Name>xunit</Name>
-      <AssemblyName>xunit.dll</AssemblyName>
-      <HintPath>..\Third Party\xunit\xunit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Parse.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Parse\Parse.fsproj">
-      <Name>Parse</Name>
-      <Project>{6c938efd-04ae-4491-bcd9-8881c6090dba}</Project>
-      <Private>True</Private>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\FSharp\1.0\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -64,4 +58,8 @@
 	<Target Name="AfterBuild">
 	</Target>
 	-->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>
