@@ -1,6 +1,6 @@
 ﻿{
 open Lexing
-open Parse
+open Parser
 }
 
 rule lexer = parse

@@ -3,11 +3,11 @@
 #nowarn "64";; // turn off warnings that type variables used in production annotations are instantiated to concrete type
 open Microsoft.FSharp.Text.Lexing
 open Microsoft.FSharp.Text.Parsing.ParseHelpers
-# 1 "Template.fsy"
+# 1 "Parser.fsy"
 
 open Template
 
-# 10 "Parse.fs"
+# 10 "Parser.fs"
 // This type is the type of tokens accepted by the parser
 type token = 
   | SEMI
@@ -81,7 +81,7 @@ let _fsyacc_reductionSymbolCounts = [|1us; 1us; 1us; 3us; 1us; |]
 let _fsyacc_productionToNonTerminalTable = [|0us; 1us; 2us; 2us; 3us; |]
 let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 16386us; 65535us; 16387us; 16388us; |]
 let _fsyacc_reductions ()  =    [| 
-# 84 "Parse.fs"
+# 84 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Template.template)) in
             Microsoft.FSharp.Core.Operators.box
@@ -90,53 +90,53 @@ let _fsyacc_reductions ()  =    [|
                       raise (Microsoft.FSharp.Text.Parsing.Accept(Microsoft.FSharp.Core.Operators.box _1))
                    )
                  : '_starttemplate));
-# 93 "Parse.fs"
+# 93 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'BlockList)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 13 "Template.fsy"
+# 13 "Parser.fsy"
                       Template(List.rev(_1)) 
                    )
-# 13 "Template.fsy"
+# 13 "Parser.fsy"
                  : Template.template));
-# 104 "Parse.fs"
+# 104 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'Block)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 16 "Template.fsy"
+# 16 "Parser.fsy"
                       [_1] 
                    )
-# 16 "Template.fsy"
+# 16 "Parser.fsy"
                  : 'BlockList));
-# 115 "Parse.fs"
+# 115 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'BlockList)) in
             let _3 = (let data = parseState.GetInput(3) in (Microsoft.FSharp.Core.Operators.unbox data : 'Block)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 17 "Template.fsy"
+# 17 "Parser.fsy"
                       _3 :: _1 
                    )
-# 17 "Template.fsy"
+# 17 "Parser.fsy"
                  : 'BlockList));
-# 127 "Parse.fs"
+# 127 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : string)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
-# 19 "Template.fsy"
+# 19 "Parser.fsy"
                       Text(_1) 
                    )
-# 19 "Template.fsy"
+# 19 "Parser.fsy"
                  : 'Block));
 |]
-# 139 "Parse.fs"
+# 139 "Parser.fs"
 let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> = 
   { reductions= _fsyacc_reductions ();
     endOfInputTag = _fsyacc_endOfInputTag;

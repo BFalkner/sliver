@@ -1,10 +1,10 @@
 #light
-# 1 "Template.fsl"
+# 1 "Lexer.fsl"
 
 open Lexing
-open Parse
+open Parser
 
-# 7 "Lex.fs"
+# 7 "Lexer.fs"
 let trans : uint16[] array = 
     [| 
    (* State 0 *)
@@ -24,17 +24,17 @@ and lexer  (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = __fslex_lexer 
 and __fslex_lexer  __fslex_state lexbuf =
   match __fslex_tables.Interpret(__fslex_state,lexbuf) with
   | 0 -> ( 
-# 7 "Template.fsl"
+# 7 "Lexer.fsl"
                 TEXT(lexeme lexbuf) 
-# 29 "Lex.fs"
+# 29 "Lexer.fs"
           )
   | 1 -> ( 
-# 8 "Template.fsl"
+# 8 "Lexer.fsl"
                 EOF 
-# 34 "Lex.fs"
+# 34 "Lexer.fs"
           )
   | _ -> failwith "lexer"
 
-# 9 "Template.fsl"
+# 9 "Lexer.fsl"
 
-# 3000000 "Lex.fs"
+# 3000000 "Lexer.fs"
