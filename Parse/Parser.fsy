@@ -1,16 +1,16 @@
 ﻿%{
-open Template
+open Element
 %}
 
 %token <string> TEXT
 %token SEMI EOF
 
 %start template
-%type <Template.template> template
+%type <Element.element list> template
 
 %%
 
-template: BlockList { Template(List.rev($1)) }
+template: BlockList { List.rev($1) }
 
 BlockList:
 	| Block	{ [$1] }

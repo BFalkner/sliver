@@ -1,9 +1,8 @@
 ﻿#light
 
-type node =
-    | Text of string
-    
-type template = Template of node list
+open Element
+
+type template = Template of element list
 
 let compile (Template l) =
     let compile_node n =

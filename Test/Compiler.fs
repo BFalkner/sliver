@@ -1,6 +1,7 @@
 ﻿#light
 
 open Xunit
+open Element
 open Template
 
 [<Fact>]

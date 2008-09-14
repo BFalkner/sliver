@@ -2,8 +2,8 @@
 
 open Xunit
 open Lexing
-open Template
+open Element
 
 [<Fact>]
 let TextBlock() =
-    Assert.Equal(Template([Text("Test")]), Parser.template Lexer.lexer (Lexing.from_string "Test"))
+    Assert.Equal([Text("Test")], Parser.template Lexer.lexer (Lexing.from_string "Test"))

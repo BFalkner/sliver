@@ -5,7 +5,7 @@ open Microsoft.FSharp.Text.Lexing
 open Microsoft.FSharp.Text.Parsing.ParseHelpers
 # 1 "Parser.fsy"
 
-open Template
+open Element
 
 # 10 "Parser.fs"
 // This type is the type of tokens accepted by the parser
@@ -83,7 +83,7 @@ let _fsyacc_immediateActions = [|65535us; 49152us; 65535us; 16386us; 65535us; 16
 let _fsyacc_reductions ()  =    [| 
 # 84 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
-            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Template.template)) in
+            let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : Element.element list)) in
             Microsoft.FSharp.Core.Operators.box
                 (
                    (
@@ -97,10 +97,10 @@ let _fsyacc_reductions ()  =    [|
                 (
                    (
 # 13 "Parser.fsy"
-                      Template(List.rev(_1)) 
+                      List.rev(_1) 
                    )
 # 13 "Parser.fsy"
-                 : Template.template));
+                 : Element.element list));
 # 104 "Parser.fs"
         (fun (parseState : Microsoft.FSharp.Text.Parsing.IParseState) ->
             let _1 = (let data = parseState.GetInput(1) in (Microsoft.FSharp.Core.Operators.unbox data : 'Block)) in
@@ -158,5 +158,5 @@ let tables () : Microsoft.FSharp.Text.Parsing.Tables<_> =
     numTerminals = 6;
     productionToNonTerminalTable = _fsyacc_productionToNonTerminalTable  }
 let engine lexer lexbuf startState = (tables ()).Interpret(lexer, lexbuf, startState)
-let template lexer lexbuf : Template.template =
+let template lexer lexbuf : Element.element list =
     Microsoft.FSharp.Core.Operators.unbox ((tables ()).Interpret(lexer, lexbuf, 0))
