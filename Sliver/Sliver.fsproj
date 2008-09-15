@@ -49,6 +49,13 @@
     <Compile Include="ProjectInstaller.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parse\Parse.fsproj">
+      <Name>Parse</Name>
+      <Project>{6c938efd-04ae-4491-bcd9-8881c6090dba}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\FSharp\1.0\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	     Other similar extension points exist, see Microsoft.Common.targets.
