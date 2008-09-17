@@ -18,9 +18,9 @@ type WebService() =
         let context = self.listener.EndGetContext(result)
         let _ = self.listener.BeginGetContext(new AsyncCallback(self.Callback), null)
         
-        let res = match Template.load (context.Request.Url.LocalPath.Trim [|'/'|]) with
-                    | Some t -> Encoding.UTF8.GetBytes(Template.compile t)
-                    | None -> Encoding.UTF8.GetBytes("Document not found.")
+        let res = match context.Request.Url.LocalPath.Trim [|'/'|] with
+                    | LoadTemplate t -> Encoding.UTF8.GetBytes(Template.compile t)
+                    | _ -> Encoding.UTF8.GetBytes("Document not found.")
         
         context.Response.ContentLength64 <- int64(res.Length)
         context.Response.OutputStream.Write(res, 0, res.Length)

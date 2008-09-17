@@ -15,8 +15,8 @@ let compile (Template l) =
 
 let private path = @"C:\wikidata\"
 
-let load name =
+let (|LoadTemplate|_|) name =
     if File.Exists (path + name) then
         Some(Template(Parser.template Lexer.lexer (Lexing.from_text_reader Encoding.ASCII (new StreamReader(path + name)))))
     else
-        Option.None
+        None
