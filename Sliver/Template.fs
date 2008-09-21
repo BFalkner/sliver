@@ -19,6 +19,10 @@ let private path = @"C:\wikidata\"
 
 let (|LoadTemplate|_|) name =
     if File.Exists (path + name) then
-        Some(Template(Parser.template Lexer.lexer (Lexing.from_text_reader Encoding.ASCII (new StreamReader(path + name)))))
+        new StreamReader(path + name)
+        |> Lexing.from_text_reader Encoding.ASCII
+        |> Parser.template Lexer.lexer
+        |> Template
+        |> Some
     else
         None
