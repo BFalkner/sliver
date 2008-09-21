@@ -56,6 +56,11 @@
       <Project>{6c938efd-04ae-4491-bcd9-8881c6090dba}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Sliver\Sliver.fsproj">
+      <Name>Sliver</Name>
+      <Project>{2f0f1a89-6bcc-454c-bd8b-af03b137aa83}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\FSharp\1.0\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

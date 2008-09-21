@@ -3,6 +3,8 @@
 open System.Text
 open System.IO
 open Element
+open Lexer
+open Parser
 
 type template = Template of element list
 
