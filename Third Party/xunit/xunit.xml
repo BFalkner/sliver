@@ -347,21 +347,28 @@
         </member>
         <member name="M:Xunit.AssertException.#ctor">
             <summary>
-            Creates a new instance of the <see cref="T:Xunit.AssertException"/> class.
+            Initializes a new instance of the <see cref="T:Xunit.AssertException"/> class.
             </summary>
         </member>
         <member name="M:Xunit.AssertException.#ctor(System.String)">
             <summary>
-            Creates a new instance of the <see cref="T:Xunit.AssertException"/> class.
+            Initializes a new instance of the <see cref="T:Xunit.AssertException"/> class.
             </summary>
             <param name="userMessage">The user message to be displayed</param>
         </member>
         <member name="M:Xunit.AssertException.#ctor(System.String,System.Exception)">
             <summary>
-            Creates a new instance of the <see cref="T:Xunit.AssertException"/> class.
+            Initializes a new instance of the <see cref="T:Xunit.AssertException"/> class.
             </summary>
             <param name="userMessage">The user message to be displayed</param>
             <param name="innerException">The inner exception</param>
+        </member>
+        <member name="M:Xunit.AssertException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xunit.AssertException"/> class.
+            </summary>
+            <param name="userMessage">The user message to be displayed</param>
+            <param name="stackTrace">The stack trace to be displayed</param>
         </member>
         <member name="M:Xunit.AssertException.FilterStackTrace(System.String)">
             <summary>
