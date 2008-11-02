@@ -9,7 +9,7 @@ let Parse s =
 
 [<Fact>]
 let TextTest() =
-    Assert.Equal([Text("Test")], Parse "Test")
+    Assert.Equal([Text("Text Test")], Parse "Text Test")
 
 [<Fact>]
 let AnchorTest() =

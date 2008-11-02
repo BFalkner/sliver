@@ -5,12 +5,16 @@ type token =
   | LT
   | SEMI
   | EOF
+  | QUOTE
+  | WHITESPACE
   | TEXT of (string)
 type tokenId = 
     | TOKEN_GT
     | TOKEN_LT
     | TOKEN_SEMI
     | TOKEN_EOF
+    | TOKEN_QUOTE
+    | TOKEN_WHITESPACE
     | TOKEN_TEXT
     | TOKEN_end_of_input
     | TOKEN_error
@@ -19,6 +23,7 @@ type nonTerminalId =
     | NONTERM_template
     | NONTERM_BlockList
     | NONTERM_Block
+    | NONTERM_Text
 /// This function maps integers indexes to symbolic token ids
 val tagOfToken: token -> int
 

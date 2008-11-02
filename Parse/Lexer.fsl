@@ -6,5 +6,7 @@ open Parser
 rule lexer = parse
 | '>'	{ GT }
 | '<'	{ LT }
+| '"'	{ QUOTE }
+| ' '	{ WHITESPACE }
 | ['a'-'z' 'A'-'Z' '0'-'9' ':' '/' '.']+	{ TEXT(lexeme lexbuf) }
 | eof	{ EOF }

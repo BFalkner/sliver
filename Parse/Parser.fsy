@@ -3,7 +3,7 @@ open Element
 %}
 
 %token <string> TEXT
-%token GT LT SEMI EOF
+%token GT LT SEMI EOF QUOTE WHITESPACE
 
 %start template
 %type <Element.element list> template
@@ -17,7 +17,12 @@ BlockList:
 	| BlockList SEMI Block	{ $3 :: $1 }
 
 Block:
+	| QUOTE Text QUOTE WHITESPACE LT TEXT GT	{ Anchor($2, $6) }
 	| LT TEXT GT	{ Anchor($2, $2) }
-	| TEXT			{ Text($1) }
+	| Text			{ Text($1) }
+	
+Text:
+	| TEXT	{ $1 }
+	| Text WHITESPACE TEXT	{ $1 + " " + $3 }
 
 %%
