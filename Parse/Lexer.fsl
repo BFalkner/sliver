@@ -8,5 +8,7 @@ rule lexer = parse
 | '<'	{ LT }
 | '"'	{ QUOTE }
 | ' '	{ WHITESPACE }
+| "# "	{ OLITEM }
+| '\n'	{ NEWLINE }
 | ['a'-'z' 'A'-'Z' '0'-'9' ':' '/' '.']+	{ TEXT(lexeme lexbuf) }
 | eof	{ EOF }
