@@ -4,5 +4,7 @@ open Parser
 }
 
 rule lexer = parse
-| _+	{ TEXT(lexeme lexbuf) }
+| '>'	{ GT }
+| '<'	{ LT }
+| ['a'-'z' 'A'-'Z' '0'-'9' ':' '/' '.']+	{ TEXT(lexeme lexbuf) }
 | eof	{ EOF }
