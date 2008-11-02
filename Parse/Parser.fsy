@@ -3,7 +3,7 @@ open Element
 %}
 
 %token <string> TEXT
-%token GT LT SEMI EOF QUOTE WHITESPACE NEWLINE OLITEM
+%token GT LT SEMI EOF QUOTE WHITESPACE NEWLINE OLITEM ULITEM
 
 %start template
 %type <Element.element list> template
@@ -18,6 +18,7 @@ BlockList:
 
 Block:
 	| OrderedList	{ OrderedList(List.rev $1) }
+	| UnorderedList	{ UnorderedList(List.rev $1) }
 	| QUOTE Text QUOTE WHITESPACE LT TEXT GT	{ Anchor($2, $6) }
 	| LT TEXT GT	{ Anchor($2, $2) }
 	| Text			{ Text($1) }
@@ -29,5 +30,9 @@ Text:
 OrderedList:
 	| OLITEM Block	{ [$2] }
 	| OrderedList NEWLINE OLITEM Block	{ $4 :: $1 }
+
+UnorderedList:
+	| ULITEM Block	{ [$2] }
+	| UnorderedList NEWLINE ULITEM Block	{ $4 :: $1 }
 
 %%

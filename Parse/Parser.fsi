@@ -9,6 +9,7 @@ type token =
   | WHITESPACE
   | NEWLINE
   | OLITEM
+  | ULITEM
   | TEXT of (string)
 type tokenId = 
     | TOKEN_GT
@@ -19,6 +20,7 @@ type tokenId =
     | TOKEN_WHITESPACE
     | TOKEN_NEWLINE
     | TOKEN_OLITEM
+    | TOKEN_ULITEM
     | TOKEN_TEXT
     | TOKEN_end_of_input
     | TOKEN_error
@@ -29,6 +31,7 @@ type nonTerminalId =
     | NONTERM_Block
     | NONTERM_Text
     | NONTERM_OrderedList
+    | NONTERM_UnorderedList
 /// This function maps integers indexes to symbolic token ids
 val tagOfToken: token -> int
 
